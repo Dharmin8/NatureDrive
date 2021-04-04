@@ -21,6 +21,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: "^0.7.0"
+  firebase_auth: "^0.20.1"
+  firebase_messaging: "^8.0.0-dev.15"
+  google_maps_flutter: "2.0.2"
+  font_awesome_flutter: "^9.0.0"
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -30,6 +35,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -58,17 +64,27 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+      - family: Raleway
+        fonts:
+          - asset: fonts/Raleway-Regular.ttf
+          - asset: fonts/Raleway-Bold.ttf
+            weight: 600
+          - asset: fonts/Raleway-SemiBold.ttf
+
+      - family: Helvetica
+        fonts:
+          - asset: fonts/Helvetica.ttf
+
+            weight: 700
+
+#    assets:
+#       - media/beach.jpg
+#       - media/profile.jpg
+#       - media/Juhu.jpg
+#       - media/Jeltz.jpg
+#       - media/Aarey.jpg
+#       - images/BootIcon.png
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
