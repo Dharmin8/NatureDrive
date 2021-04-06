@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthImplementation
 {
-  Future <String> SignIn(String email,String password);
-  Future <String> SignUp(String email,String password);
-  Future<String> getCurrentUser();
+  Future <String> signIn(String email,String password);
+  Future <String> signUp(String email,String password);
+  String getCurrentUser();
   Future<void> signOut();
 }
 
@@ -12,25 +12,25 @@ class Auth implements AuthImplementation
 {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  Future <String> SignIn(String email,String password) async
+  Future <String> signIn(String email,String password) async
   {
-    AuthResult result =  (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password));
-    FirebaseUser user= result.user;
+    UserCredential result =  (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password));
+    User user= result.user;
     return user.uid;
   
   }
 
 
-  Future <String> SignUp(String email,String password) async
+  Future <String> signUp(String email,String password) async
   {
-    AuthResult result =  (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)) ;
-    FirebaseUser user= result.user;
+    UserCredential result =  (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)) ;
+    User user= result.user;
     return user.uid;
   }
 
-  Future<String> getCurrentUser() async
+  String getCurrentUser()
   {
-    FirebaseUser user = await _firebaseAuth.currentUser();
+    User user = _firebaseAuth.currentUser;
     return user.uid;
   }
   Future<void> signOut () async
