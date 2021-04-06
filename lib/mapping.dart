@@ -31,12 +31,10 @@ class _MappingPageState extends State<MappingPage>
 
   {
     super.initState();
-    widget.auth.getCurrentUser().then((firebaseUserId)
-    {
+    String firebaseUserId = widget.auth.getCurrentUser();
       setState(() {
         authStatus = firebaseUserId == null? AuthStatus.notSignedIn:AuthStatus.signedIn;  
       });
-    });
   }
 
   void _signedIn()

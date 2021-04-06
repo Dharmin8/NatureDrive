@@ -21,7 +21,7 @@ class _MapViewState extends State<MapView> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        loading: IconButton(
+        leading: IconButton(
           icon: Icon(FontAwesomeIcons.arrowLeft),
           onPressed: () {},
         ),
@@ -33,15 +33,15 @@ class _MapViewState extends State<MapView> {
           ),
         ],
       ),
-
-      body: Stack(
-        children: <Widget>[
-          _googlemap(context),
-          _zoomminusfunction(),
-          _zoomplusfunction(),
-          _buildContainer(),
-        ],
-      ),
+        // Stack(
+        //   children: <Widget>[
+        //     _googlemap(context),
+        //     _zoomminusfunction(),
+        //     _zoomplusfunction(),
+        //     _buildContainer(),
+        //   ],
+        // ),
+      body: Text("To be implemented")
     );
   }
 
@@ -55,17 +55,15 @@ class _MapViewState extends State<MapView> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
-        markers: (
-          mumbaiMarker
-        ),
+        markers: Set(),
       ),
     );
   }
 }
 
-Marker mumbaiMarker(
-  markerId: MarkerId('mumbai'),
-  position: LatLng(19.0760, 72.8777),
-  infoWindow: InfoWindow(title: 'Mumbai'),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
-),
+// Marker mumbaiMarker(
+//   markerId: MarkerId('mumbai'),
+//   position: LatLng(19.0760, 72.8777),
+//   infoWindow: InfoWindow(title: 'Mumbai'),
+//   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+// ),

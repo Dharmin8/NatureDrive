@@ -43,10 +43,10 @@ class _LoginPageState extends State<LoginPage> {
     if (validateAndSave()) {
       try {
         if (_formType == FormType.login) {
-          String userId = await widget.auth.SignIn(_email, _password);
+          String userId = await widget.auth.signIn(_email, _password);
           print("login userId = " + userId);
         } else {
-          String userId = await widget.auth.SignUp(_email, _password);
+          String userId = await widget.auth.signUp(_email, _password);
           print("Register userId = " + userId);
         }
         widget.onSignedIn();

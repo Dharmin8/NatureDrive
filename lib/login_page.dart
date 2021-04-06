@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nature_drive/authentication.dart';
 
 import 'Setup/Pages/home.dart';
 
@@ -94,7 +95,9 @@ class _LoginState extends State<Login> {
     if(_regex.hasMatch(_email)) {
       formState.save();
       try {
-        FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
+        // TODO Check the implementation here
+        Auth auth = new Auth();
+        User user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
         Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
       } catch(e) {
         print(e.message);
