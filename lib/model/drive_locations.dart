@@ -1,7 +1,7 @@
 class DriveLocations {
   final String name;
 
-  DriveLocations({this.name});
+  DriveLocations({this.name = ""});
 }
 
 List<DriveLocations> locationData = [

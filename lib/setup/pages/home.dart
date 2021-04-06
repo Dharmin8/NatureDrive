@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nature_drive/app_home.dart';
+import 'package:nature_drive/authentication.dart';
 
 
 class Home extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 5), () => AppHome());
+    Timer(Duration(seconds: 5), () => AppHome(auth: Auth(), onSignedOut: () {  },));
   }
 
   @override

@@ -5,8 +5,8 @@ import 'login_home.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({
-    this.auth,
-    this.onSignedIn,
+    required this.auth,
+    required this.onSignedIn,
     onSignedOut,
   });
 
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   bool validateAndSave() {
     final form = formKey.currentState;
 
-    if (form.validate()) {
+    if (form!.validate()) {
       form.save();
       return true;
     } else {
@@ -57,14 +57,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void moveToRegister() {
-    formKey.currentState.reset();
+    formKey.currentState?.reset();
     setState(() {
       _formType = FormType.register;
     });
   }
 
   void moveToLogin() {
-    formKey.currentState.reset();
+    formKey.currentState?.reset();
     setState(() {
       _formType = FormType.login;
     });
@@ -101,10 +101,11 @@ class _LoginPageState extends State<LoginPage> {
       new TextFormField(
         decoration: new InputDecoration(labelText: 'Email'),
         validator: (value) {
-          return value.isEmpty ? 'Please Enter Your Email' : null;
+          return value!.isEmpty ? 'Please Enter Your Email' : null;
         },
         onSaved: (value) {
-          return _email = value;
+          _email = value!;
+          return;
         },
       ),
       SizedBox(
@@ -114,10 +115,10 @@ class _LoginPageState extends State<LoginPage> {
         decoration: new InputDecoration(labelText: 'Password'),
         obscureText: true,
         validator: (value) {
-          return value.isEmpty ? 'Please Enter Your Password' : null;
+          return value!.isEmpty ? 'Please Enter Your Password' : null;
         },
         onSaved: (value) {
-          return _password = value;
+          _password = value!;
         },
       ),
       SizedBox(

@@ -10,9 +10,8 @@ import 'package:nature_drive/login_page.dart';
 class AppHome extends StatefulWidget {
 
   AppHome({
-    this.auth,
-    this.onSignedOut,
-
+    required this.auth,
+    required this.onSignedOut,
 });
 
   final AuthImplementation auth;
@@ -92,19 +91,19 @@ class _AppHomeState extends State<AppHome> with SingleTickerProviderStateMixin {
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
-            title: new Text("Home"),
+            label: "Home",
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.search),
-            title: new Text("Search"),
+            label:"Search",
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.favorite),
-            title: new Text("Marked"),
+            label: "Marked",
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.check),
-            title: new Text("Attended"),
+            label: "Attended",
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.person),

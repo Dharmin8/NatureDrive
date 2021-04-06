@@ -3,7 +3,7 @@ class HomeModel {
   final String desc;
   final String avatarUrl;
 
-  HomeModel({this.name, this.desc, this.avatarUrl});
+  HomeModel({required this.name, required this.desc, required this.avatarUrl});
 }
 
 List<HomeModel> homeData = [

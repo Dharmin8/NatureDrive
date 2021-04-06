@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:nature_drive/authentication.dart';
-
-import 'Setup/Pages/home.dart';
+import 'setup/pages/home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,7 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String _email, _password;
+  late String _email, _password;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -51,7 +50,7 @@ class _LoginState extends State<Login> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new TextFormField(
-                          onSaved: (input) => _email = input,
+                          onSaved: (input) => _email = input!,
                           decoration: new InputDecoration(
                             labelText: "Enter Email: ",
                           ),
@@ -59,7 +58,7 @@ class _LoginState extends State<Login> {
                           keyboardType: TextInputType.emailAddress,
                         ),
                         new TextFormField(
-                          onSaved: (input) => _password = input,
+                          onSaved: (input) => _password = input!,
                           decoration: new InputDecoration(
                             labelText: "Enter Password: ",
                           ),
@@ -93,14 +92,14 @@ class _LoginState extends State<Login> {
     final formState = _formKey.currentState;
     RegExp _regex = RegExp("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}\$");
     if(_regex.hasMatch(_email)) {
-      formState.save();
+      formState?.save();
       try {
         // TODO Check the implementation here
         Auth auth = new Auth();
         User user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
         Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
       } catch(e) {
-        print(e.message);
+        print(e.toString());
       }
     }
   }
