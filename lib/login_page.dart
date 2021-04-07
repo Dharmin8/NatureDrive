@@ -96,7 +96,7 @@ class _LoginState extends State<Login> {
       try {
         // TODO Check the implementation here
         Auth auth = new Auth();
-        User user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
+        String uid = (await auth.signIn(_email,_password));
         Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
       } catch(e) {
         print(e.toString());

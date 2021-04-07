@@ -107,7 +107,7 @@ class _AppHomeState extends State<AppHome> with SingleTickerProviderStateMixin {
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.person),
-            title: new Text("Profile"),
+            label: "Profile",
           ),
         ],
       ),

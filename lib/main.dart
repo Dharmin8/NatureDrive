@@ -1,6 +1,8 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nature_drive/app_home.dart';
+import 'package:nature_drive/authentication.dart';
 import 'package:nature_drive/mapview.dart';
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,7 +65,7 @@ class _MyAppState extends State<MyApp> {
       );
     }
     else{
-      return MapView();
+      return AppHome(auth: Auth(), onSignedOut: (){});
     }
   }
 }
